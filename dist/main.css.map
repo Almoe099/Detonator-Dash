@@ -1,0 +1,1 @@
+{"version":3,"file":"main.css","mappings":"AAEA,MACI,YCHI,C","sources":["webpack://detonator-dash/./src/index.scss","webpack://detonator-dash/./src/styles/example.scss"],"sourcesContent":["@import \"./styles/example.scss\";\r\n\r\n#main{\r\n    color: $color;\r\n}","$color: purple;\r\n\r\n"],"names":[],"sourceRoot":""}
