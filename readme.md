@@ -29,12 +29,7 @@ Additionally, the project will include:
 
 ## Wireframes
 
-![Wireframe Image](link_to_your_wireframe_image)
-
-
 ![Alt text](image.png)
-
-[Note: Use a wireframing tool like Wireframe.cc to create labeled boxes showing the layout of your game.]
 
 ## Technologies, Libraries, APIs
 
