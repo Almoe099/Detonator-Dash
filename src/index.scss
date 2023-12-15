@@ -38,6 +38,48 @@ li {
     background-color: yellow;
 }
 
-.clicked {
+// .clicked {
+//     background-color: red;
+// }
+
+.coinTile {
+    background-color: yellow;
+    position: relative;
+}
+
+.coinTile::before {
+    content: '💰';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px; /* Adjust the font size as needed */
+}
+
+.bombTile {
     background-color: red;
+    position: relative;
+}
+
+.bombTile::before {
+    content: '💣';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px; /* Adjust the font size as needed */
+}
+
+.keyTile {
+    background-color: green;
+    position: relative;
+}
+
+.keyTile::before {
+    content: '🗝️';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px; /* Adjust the font size as needed */
 }
