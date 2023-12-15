@@ -1,17 +1,66 @@
 @import "./styles/example.scss";
 
 h1 {
-    font-family: monospace;
-    font-size: 50px;
-    color: red;
+    font-size: 3em; /* Font size */
     text-align: center;
+    position: relative;
+    top: 75px;
+
+    animation: popAnimation 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
 }
+
+@keyframes popAnimation {
+    0%, 20%, 50%, 80%, 100% {
+        transform: scale(1);
+        color: #61dafb; /* Original text color */
+    }
+    40%, 60% {
+        transform: scale(1.2);
+        color: #f00; /* Change text color to red or any other color */
+    }
+}
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: url(https://media1.giphy.com/media/8ZhvGTJyz3PvJMeQUS/100.webp?cid=ecf05e4737qjh1jd36fo38txwa7qpvcpbmy0jjwzjjq7qj4q&ep=v1_gifs_search&rid=100.webp&ct=g) center/cover fixed;
+    color: #61dafb; /* Text color */
+    height: 100vh; /* Full viewport height */
+    align-items: center;
+    animation: coolAnimation 2s linear infinite; /* Change to linear timing function */
+}
+
+// body {
+//     // background-color: rgb(39, 74, 0);
+//     // background-image: url(https://media3.giphy.com/media/IbekjrW43xz0XNtpe0/giphy.webp?cid=ecf05e47kle1m4sqcse6a0x2yt8a4w5eheimaza1i6zd5x2d&ep=v1_gifs_search&rid=giphy.webp&ct=g);
+//     // background-size: cover;
+//     background: url(https://media3.giphy.com/media/IbekjrW43xz0XNtpe0/giphy.webp?cid=ecf05e47kle1m4sqcse6a0x2yt8a4w5eheimaza1i6zd5x2d&ep=v1_gifs_search&rid=giphy.webp&ct=g) center/cover fixed;
+// }
+
+
+
+@keyframes coolAnimation {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+
+
+
+
+
 
 #board{
     width: 400px;
     height: fit-content;
     border: 10px solid black;
     background-color: lightslategray;
+    position: relative;
+    top: 150px;
     // column-gap: 100px;
     margin: 0 auto;
     display: flex;
@@ -37,10 +86,6 @@ li {
 #board :hover {
     background-color: yellow;
 }
-
-// .clicked {
-//     background-color: red;
-// }
 
 .coinTile {
     background-color: yellow;
