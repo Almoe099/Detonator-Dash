@@ -1,46 +1,51 @@
 export class Board {
-  constructor() {}
+  constructor(boardContainer) {
+    this.boardContainer = boardContainer;
+    // this.boardArray = createBoardArray()
+  }
+
+  createBoardArray() {
+
+    const my2DArray = [];
+    const rows = 8;
+    const columns = 8;
+    for (let i = 0; i < rows; i++) {
+      my2DArray[i] = [];
+      for (let j = 0; j < columns; j++) {
+        my2DArray[i][j] = j;
+      }
+    }
+    console.log(my2DArray);
+  }
 
   createBoard() {
-      const div = document.createElement("div")
-      for(let r = 0; r < 8; r++){
-          let row = []
-          for(let c = 0; c < 8; c++){
-              let tile = document.createElement("li")
-              tile.dataset.pos = JSON.stringify([r, c])
-              div.appendChild(tile)
-          }
+    for (let r = 0; r < 8; r++) {
+      for (let c = 0; c < 8; c++) {
+        let tile = document.createElement("li");
+        tile.dataset.pos = JSON.stringify([r, c]);
+        this.boardContainer.appendChild(tile);
+        // tile.innerHTML = ""
       }
-      document.getElementById('board').appendChild(div)
+    }
+    this.boardContainer.addEventListener("click", this.handleClick);
+
+    // this.createBoardArray()
+  }
+
+  handleClick(e) {
+    // e.innerHTML =
+    console.log("hello");
+    // grap coordinate and use it to see its value
+  }
 }
-}
 
-//   createBoard() {
-//     return Array.from({ length: 8 }, () =>
-//       Array.from({ length: 8 }, () => ({
-//         color: "white",
-//         isBomb: Math.random() < 0.2, // 20% chance of being a bomb
-//         isClicked: false,
-//       }))
-//     );
-//   }
-
-//   isBomb(cell) {
-//     return cell && cell.isBomb;
-//   }
-
-  
-// }
-// export function initializeGrid(size) {
-//     return Array.from({ length: size }, () =>
-//       Array.from({ length: size }, () => ({
-//         color: "white",
-//         isBomb: Math.random() < 0.2, // 20% chance of being a bomb
-//         isClicked: false,
-//       }))
-//     );
-//   }
-  
-//   export function isBomb(cell) {
-//     return cell && cell.isBomb;
-//   }
+// create a 2d array of [0,0] to [7,7]
+// populate it with random elements like b = bomb or ""
+//
+// [ [“B”, “”, “B”, “”, “”, “”],
+// [“B”, “”, “”, “”, “B”, “”],
+// [“”, “”, “”, “”, “”, “”],
+// [“”, “”, “”, “”, “”, “”],
+// [ [“B”, “”, “B”, “”, “B”, “”],
+// [“”, “”, “”, “”, “”, “”]]
+// google a 2d array
