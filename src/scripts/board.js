@@ -33,6 +33,7 @@ export class Board {
         let tile = document.createElement("li");
         tile.dataset.posX = r;
         tile.dataset.posY = c;
+        tile.setAttribute("id", r + "-" + c)
         this.boardContainer.appendChild(tile);
       }
     }
@@ -52,36 +53,27 @@ export class Board {
       e.target.classList.add("keyTile")
     } else {
       e.target.classList.add("bombTile")
-      // this.revealBoard()
+      this.revealBoard()
       alert("GAME OVER");
     }
   }
-
-
+  
+  revealBoard() {
+    for (let i = 0; i < 8; i++) {
+      for (let j = 0; j < 8; j++) {
+        let tile = document.getElementById( i + "-" + j)
+        switch (this.boardArray[i][j]) {
+          case "💰":
+            tile.classList.add("coinTile");
+            break;
+          case "🗝️":
+            tile.classList.add("keyTile");
+            break;
+          case "💣":
+            tile.classList.add("bombTile");
+            break;
+        }
+      }
+    }
+  }
 }
-  // revealBoard() {
-  //   for (let i = 0; i < 8; i++) {
-  //     for (let j = 0; j < 8; j++) {
-  //       switch (this.boardArray[i][j]) {
-  //         case "💰":
-  //           tile.classList.add("coinTile");
-  //           break;
-  //         case "🗝️":
-  //           tile.classList.add("keyTile");
-  //           break;
-  //         case "💣":
-  //           tile.classList.add("bombTile");
-  //           break;
-  //       }
-  //     }
-  //   }
-  // }
-  // getTileElement(row, col) {
-  //   // Query the boardContainer for the li element with matching data-posX and data-posY
-  //   return this.boardContainer.querySelector(`li[data-posX="${row}"][data-posY="${col}"]`);
-  // }
-  // console.log("hello");
-  // console.log(e)
-  // console.log(e.target)
-
-  // 
