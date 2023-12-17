@@ -128,3 +128,17 @@ li {
     transform: translate(-50%, -50%);
     font-size: 20px; /* Adjust the font size as needed */
 }
+
+.nearKeyTile {
+    background-color: blue;
+    position: relative;
+}
+
+.nearKeyTile::before {
+    content: '💎';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px; /* Adjust the font size as needed */
+}

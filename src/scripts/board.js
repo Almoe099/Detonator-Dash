@@ -5,16 +5,17 @@ export class Board {
   }
 
   createBoardArray() {
-    const keyPosition = {
+    this.keyPosition = {
       row: Math.floor(Math.random() * 8),
       column: Math.floor(Math.random() * 8),
     };
+    console.log(this.keyPosition)
 
     let arr = [];
     for (let i = 0; i < 8; i++) {
       const row = [];
       for (let j = 0; j < 8; j++) {
-        if (i === keyPosition.row && j === keyPosition.column) {
+        if (i === this.keyPosition.row && j === this.keyPosition.column) {
           row.push("🗝️");
         } else {
           const randomValue = Math.random();
@@ -42,15 +43,19 @@ export class Board {
 
   handleClick(e) {
     // console.log(e.target)
+    // console.log(this.keyPosition)
+    // console.log(this.nearKey(1, 2))
     const dataPosValue = [
       parseInt(e.target.dataset.posX),
       parseInt(e.target.dataset.posY),
     ];
 
-    if (this.boardArray[dataPosValue[0]][dataPosValue[1]] === "💰"){
-      e.target.classList.add("coinTile");
+    if (this.nearKey(dataPosValue[0], dataPosValue[1])){
+      e.target.classList.add("nearKeyTile");
     } else if (this.boardArray[dataPosValue[0]][dataPosValue[1]] === "🗝️"){
       e.target.classList.add("keyTile")
+    } else if (this.boardArray[dataPosValue[0]][dataPosValue[1]] === "💰"){
+      e.target.classList.add("coinTile")
     } else {
       e.target.classList.add("bombTile")
       this.revealBoard()
@@ -63,6 +68,9 @@ export class Board {
       for (let j = 0; j < 8; j++) {
         let tile = document.getElementById( i + "-" + j)
         switch (this.boardArray[i][j]) {
+          case "💎":
+            tile.classList.add("nearKeyTile");
+            break;
           case "💰":
             tile.classList.add("coinTile");
             break;
@@ -76,4 +84,24 @@ export class Board {
       }
     }
   }
+
+  nearKey(x, y) {
+    const keyPosX = this.keyPosition.row;
+    const keyPosY = this.keyPosition.column;
+  
+    const nearTiles = [
+      [x - 1, y],
+      [x + 1, y],
+      [x, y + 1],
+      [x, y - 1], 
+      [x + 1, y - 1],
+      [x + 1, y + 1],
+      [x - 1, y + 1],
+      [x - 1, y - 1],
+    ];
+  
+    return nearTiles.some(tile => tile[0] === keyPosX && tile[1] === keyPosY);
+  }
+
+
 }
