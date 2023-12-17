@@ -62,24 +62,26 @@ export class Board {
       alert("GAME OVER");
     }
   }
-  
+
   revealBoard() {
     for (let i = 0; i < 8; i++) {
       for (let j = 0; j < 8; j++) {
-        let tile = document.getElementById( i + "-" + j)
-        switch (this.boardArray[i][j]) {
-          case "💎":
-            tile.classList.add("nearKeyTile");
-            break;
-          case "💰":
-            tile.classList.add("coinTile");
-            break;
-          case "🗝️":
-            tile.classList.add("keyTile");
-            break;
-          case "💣":
-            tile.classList.add("bombTile");
-            break;
+        let tile = document.getElementById(i + "-" + j);
+  
+        if (this.nearKey(parseInt(i), parseInt(j))) {
+          tile.classList.add("nearKeyTile");
+        } else {
+          switch (this.boardArray[i][j]) {
+            case "💰":
+              tile.classList.add("coinTile");
+              break;
+            case "🗝️":
+              tile.classList.add("keyTile");
+              break;
+            case "💣":
+              tile.classList.add("bombTile");
+              break;
+          }
         }
       }
     }
