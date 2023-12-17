@@ -9,7 +9,6 @@ export class Board {
       row: Math.floor(Math.random() * 8),
       column: Math.floor(Math.random() * 8),
     };
-    console.log(this.keyPosition)
 
     let arr = [];
     for (let i = 0; i < 8; i++) {
@@ -42,9 +41,6 @@ export class Board {
   }
 
   handleClick(e) {
-    // console.log(e.target)
-    // console.log(this.keyPosition)
-    // console.log(this.nearKey(1, 2))
     const dataPosValue = [
       parseInt(e.target.dataset.posX),
       parseInt(e.target.dataset.posY),
