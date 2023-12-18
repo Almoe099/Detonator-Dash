@@ -158,4 +158,5 @@ export class Board {
       this.updateScoreDisplay();
     }, 1000);
   }
+  
 }
