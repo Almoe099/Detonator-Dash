@@ -48,12 +48,6 @@ body {
     }
 }
 
-
-
-
-
-
-
 #board{
     width: 400px;
     height: fit-content;
@@ -142,3 +136,19 @@ li {
     transform: translate(-50%, -50%);
     font-size: 20px; /* Adjust the font size as needed */
 }
+
+#score, #vaultCount{
+    border: 3px solid #ff0000;
+    border-radius: 10px;
+    height: 30px;
+    width: 50px;
+    background-color: white;
+    margin-top: 20px;
+    text-align: center;
+    color: #f00;
+}
+
+
+// h2 {
+//     text-align: center;
+// }
