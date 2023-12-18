@@ -33,7 +33,7 @@ export class Board {
         let tile = document.createElement("li");
         tile.dataset.posX = r;
         tile.dataset.posY = c;
-        tile.setAttribute("id", r + "-" + c)
+        tile.setAttribute("id", r + "-" + c);
         this.boardContainer.appendChild(tile);
       }
     }
@@ -46,15 +46,17 @@ export class Board {
       parseInt(e.target.dataset.posY),
     ];
 
-    if (this.nearKey(dataPosValue[0], dataPosValue[1])){
-      e.target.classList.add("nearKeyTile");
-    } else if (this.boardArray[dataPosValue[0]][dataPosValue[1]] === "🗝️"){
-      e.target.classList.add("keyTile")
-    } else if (this.boardArray[dataPosValue[0]][dataPosValue[1]] === "💰"){
-      e.target.classList.add("coinTile")
+    if (this.boardArray[dataPosValue[0]][dataPosValue[1]] === "💰") {
+      if (this.nearKey(dataPosValue[0], dataPosValue[1])) {
+        e.target.classList.add("nearKeyTile");
+      } else {
+        e.target.classList.add("coinTile");
+      }
+    } else if (this.boardArray[dataPosValue[0]][dataPosValue[1]] === "🗝️") {
+      e.target.classList.add("keyTile");
     } else {
-      e.target.classList.add("bombTile")
-      this.revealBoard()
+      e.target.classList.add("bombTile");
+      this.revealBoard();
       alert("GAME OVER");
     }
   }
@@ -63,21 +65,20 @@ export class Board {
     for (let i = 0; i < 8; i++) {
       for (let j = 0; j < 8; j++) {
         let tile = document.getElementById(i + "-" + j);
-  
-        if (this.nearKey(parseInt(i), parseInt(j))) {
-          tile.classList.add("nearKeyTile");
-        } else {
-          switch (this.boardArray[i][j]) {
-            case "💰":
+        switch (this.boardArray[i][j]) {
+          case "💰":
+            if (this.nearKey(parseInt(i), parseInt(j))) {
+              tile.classList.add("nearKeyTile");
+            } else {
               tile.classList.add("coinTile");
-              break;
-            case "🗝️":
-              tile.classList.add("keyTile");
-              break;
-            case "💣":
-              tile.classList.add("bombTile");
-              break;
-          }
+            }
+            break;
+          case "🗝️":
+            tile.classList.add("keyTile");
+            break;
+          case "💣":
+            tile.classList.add("bombTile");
+            break;
         }
       }
     }
@@ -86,20 +87,18 @@ export class Board {
   nearKey(x, y) {
     const keyPosX = this.keyPosition.row;
     const keyPosY = this.keyPosition.column;
-  
+
     const nearTiles = [
       [x - 1, y],
       [x + 1, y],
       [x, y + 1],
-      [x, y - 1], 
+      [x, y - 1],
       [x + 1, y - 1],
       [x + 1, y + 1],
       [x - 1, y + 1],
       [x - 1, y - 1],
     ];
-  
-    return nearTiles.some(tile => tile[0] === keyPosX && tile[1] === keyPosY);
+
+    return nearTiles.some((tile) => tile[0] === keyPosX && tile[1] === keyPosY);
   }
-
-
 }
