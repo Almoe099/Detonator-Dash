@@ -2,19 +2,19 @@ export class Board {
   constructor(boardContainer) {
     this.boardContainer = boardContainer;
     this.boardArray = this.createBoardArray();
-    this.vaultCount = 1
-    this.score = 0
-    // this.KeyScore = 50
-    // this.diamondScore = 25
-    // this.cashScore = 10
-    this.bombRate = 0.2
+    this.vaultCount = 1;
+    this.score = 0;
+    this.KeyScore = 50
+    this.diamondScore = 25
+    this.cashScore = 10
+    this.bombRate = 0.2;
+    this.handleClick = this.handleClick.bind(this)
   }
 
   createBoardArray() {
-    if (this.bombRate === undefined){
-      this.bombRate = 0.2
+    if (this.bombRate === undefined) {
+      this.bombRate = 0.2;
     }
-    console.log(this.bombRate)
 
     this.keyPosition = {
       row: Math.floor(Math.random() * 8),
@@ -49,8 +49,8 @@ export class Board {
       }
     }
     this.updateScoreDisplay();
-    this.updateVaultCount()
-    this.boardContainer.addEventListener("click", this.handleClick.bind(this));
+    this.updateVaultCount();
+    this.boardContainer.addEventListener("click", this.handleClick);
   }
 
   handleClick(e) {
@@ -59,30 +59,35 @@ export class Board {
       parseInt(e.target.dataset.posY),
     ];
 
+    if (e.target.classList.contains("diamondTile")) {
+      return;
+    }
+
+    if (e.target.classList.contains("cashTile")) {
+      return;
+    }
+
     if (this.boardArray[dataPosValue[0]][dataPosValue[1]] === "💰") {
       if (this.nearKey(dataPosValue[0], dataPosValue[1])) {
-        e.target.classList.add("nearKeyTile");
-        this.score += 25
+        e.target.classList.add("diamondTile");
+        this.score += this.diamondScore;
       } else {
-        e.target.classList.add("coinTile");
-        this.score += 10
+        e.target.classList.add("cashTile");
+        this.score += this.cashScore;
       }
     } else if (this.boardArray[dataPosValue[0]][dataPosValue[1]] === "🗝️") {
       e.target.classList.add("keyTile");
-      this.score += 50
+      this.score += this.KeyScore;
       this.KeyFound();
-      this.vaultCount += 1
-      // this.updateVaultCount()
+      this.vaultCount += 1;
     } else {
       e.target.classList.add("bombTile");
       this.revealBoard();
-      // alert(`GAME OVER , Your Score: $${this.score}`);
-      // console.log("Removing event listener");
-      // this.boardContainer.removeEventListener('click', this.handleClick.bind(this));
+      alert(`GAME OVER , Your Score: $${this.score}`);
+      this.boardContainer.removeEventListener('click', this.handleClick);
       return;
     }
-    this.updateScoreDisplay()
-    // this.updateVaultCount()
+    this.updateScoreDisplay();
   }
 
   revealBoard() {
@@ -92,9 +97,9 @@ export class Board {
         switch (this.boardArray[i][j]) {
           case "💰":
             if (this.nearKey(parseInt(i), parseInt(j))) {
-              tile.classList.add("nearKeyTile");
+              tile.classList.add("diamondTile");
             } else {
-              tile.classList.add("coinTile");
+              tile.classList.add("cashTile");
             }
             break;
           case "🗝️":
@@ -126,28 +131,27 @@ export class Board {
     return nearTiles.some((tile) => tile[0] === keyPosX && tile[1] === keyPosY);
   }
 
-
   updateScoreDisplay() {
-    const score = document.getElementById("score")
-    score.innerHTML = "$" + this.score
+    const score = document.getElementById("score");
+    score.innerHTML = "$" + this.score;
     console.log("Score: $" + this.score);
   }
 
   updateVaultCount() {
-    const vault = document.getElementById("vaultCount")
-    vault.innerHTML = this.vaultCount
+    const vault = document.getElementById("vaultCount");
+    vault.innerHTML = this.vaultCount;
   }
 
   KeyFound() {
-    this.bombRate += 0.01
+    this.bombRate *= 1.1;
+    this.KeyScore *= 2
+    this.diamondScore *= 2
+    this.cashScore *= 2
     setTimeout(() => {
       this.boardArray = this.createBoardArray();
-      this.boardContainer.innerHTML = '';
+      this.boardContainer.innerHTML = "";
       this.createBoard();
       this.updateScoreDisplay();
-      // this.updateVaultCount()
     }, 1000);
   }
-
 }
-

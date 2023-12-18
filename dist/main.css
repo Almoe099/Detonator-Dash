@@ -121,12 +121,12 @@ li {
   background-color: yellow;
 }
 
-.coinTile {
+.cashTile {
   background-color: yellow;
   position: relative;
 }
 
-.coinTile::before {
+.cashTile::before {
   content: "💰";
   position: absolute;
   top: 50%;
@@ -163,12 +163,12 @@ li {
   font-size: 20px; /* Adjust the font size as needed */
 }
 
-.nearKeyTile {
+.diamondTile {
   background-color: blue;
   position: relative;
 }
 
-.nearKeyTile::before {
+.diamondTile::before {
   content: "💎";
   position: absolute;
   top: 50%;
