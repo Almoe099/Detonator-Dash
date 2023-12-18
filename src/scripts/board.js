@@ -133,13 +133,13 @@ export class Board {
 
   updateScoreDisplay() {
     const score = document.getElementById("score");
-    score.innerHTML = "$" + this.score;
+    score.innerHTML = "Current Score $" + this.score;
     console.log("Score: $" + this.score);
   }
 
   updateVaultCount() {
     const vault = document.getElementById("vaultCount");
-    vault.innerHTML = this.vaultCount;
+    vault.innerHTML = "Vault Number " + this.vaultCount;
   }
 
   KeyFound() {
