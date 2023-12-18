@@ -67,6 +67,10 @@ export class Board {
       return;
     }
 
+    if (e.target.classList.contains("keyTile")) {
+      return;
+    }
+
     if (this.boardArray[dataPosValue[0]][dataPosValue[1]] === "💰") {
       if (this.nearKey(dataPosValue[0], dataPosValue[1])) {
         e.target.classList.add("diamondTile");

@@ -1,7 +1,7 @@
 @import "./styles/example.scss";
 
 h1 {
-    font-size: 3em; /* Font size */
+    font-size: 3em; 
     text-align: center;
     position: relative;
     top: 75px;
@@ -12,11 +12,11 @@ h1 {
 @keyframes popAnimation {
     0%, 20%, 50%, 80%, 100% {
         transform: scale(1);
-        color: #61dafb; /* Original text color */
+        color: #61dafb; 
     }
     40%, 60% {
         transform: scale(1.2);
-        color: #f00; /* Change text color to red or any other color */
+        color: #f00; 
     }
 }
 body {
@@ -24,19 +24,11 @@ body {
     padding: 0;
     overflow: hidden;
     background: url(https://media3.giphy.com/media/ei69IyyyIqc2lxn2DZ/giphy.gif?cid=ecf05e47lrscmfy4u7au8y2wm4k5biuakh6g4n45qlum5sta&ep=v1_gifs_search&rid=giphy.gif&ct=g) center/cover fixed;
-    color: #61dafb; /* Text color */
-    height: 100vh; /* Full viewport height */
+    color: #61dafb;
+    height: 100vh; 
     align-items: center;
-    animation: coolAnimation 2s linear infinite; /* Change to linear timing function */
+    animation: coolAnimation 2s linear infinite;
 }
-
-// body {
-//     // background-color: rgb(39, 74, 0);
-//     // background-image: url(https://media3.giphy.com/media/IbekjrW43xz0XNtpe0/giphy.webp?cid=ecf05e47kle1m4sqcse6a0x2yt8a4w5eheimaza1i6zd5x2d&ep=v1_gifs_search&rid=giphy.webp&ct=g);
-//     // background-size: cover;
-//     background: url(https://media3.giphy.com/media/IbekjrW43xz0XNtpe0/giphy.webp?cid=ecf05e47kle1m4sqcse6a0x2yt8a4w5eheimaza1i6zd5x2d&ep=v1_gifs_search&rid=giphy.webp&ct=g) center/cover fixed;
-// }
-
 
 
 @keyframes coolAnimation {
@@ -54,7 +46,7 @@ body {
     border: 10px solid black;
     background-color: lightslategray;
     position: relative;
-    top: 220px;
+    top: 150px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -65,10 +57,6 @@ li {
     height: 66.75px;
     border: 1px solid black;
     margin: 0px;
-    
-
-    // flex-wrap: wrap;
-
     font-size: 30px;
     display: inline-flex;
     justify-content: center;
@@ -91,7 +79,7 @@ li {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 30px; /* Adjust the font size as needed */
+    font-size: 30px;
 }
 
 .bombTile {
@@ -105,7 +93,7 @@ li {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 30px; /* Adjust the font size as needed */
+    font-size: 30px;
 }
 
 .keyTile {
@@ -119,7 +107,7 @@ li {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 30px; /* Adjust the font size as needed */
+    font-size: 30px;
 }
 
 .diamondTile {
@@ -133,7 +121,7 @@ li {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 30px; /* Adjust the font size as needed */
+    font-size: 30px; 
 }
 
 #score{
@@ -146,10 +134,6 @@ li {
     text-align: center;
     color: black;
     font-size: 30px;
-    position: absolute;
-    top: 21%;
-    left: 25.5%;
-    transform: translate(-50%, -50%);;
 }
 
 #vaultCount{
@@ -162,10 +146,6 @@ li {
     text-align: center;
     color: crimson;
     font-size: 30px;
-    position: absolute;
-    top: 21%;
-    left: 50%;
-    transform: translate(-50%, -50%);;
 }
 
 #restart{
@@ -178,8 +158,60 @@ li {
     text-align: center;
     color: black;
     font-size: 30px;
-    position: absolute;
-    top: 21%;
-    left: 74.5%;
-    transform: translate(-50%, -50%);;
+}
+
+.container{
+    width: 550px;
+    display: flex;
+    margin: 0 auto;
+    position: relative;
+    top: 120px;
+}
+
+button{
+    background-color: gray;
+    border: 0;
+    border-radius: 7px;
+    box-shadow: rgba(0, 0, 0, 0.3);
+    color: aqua;
+    font-size: 20px;
+    padding: 10px 20px;
+}
+
+.modalContainer {
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vh;
+}
+
+.modalContainer .show {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.modal {
+    background-color: #f00;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.3);
+    padding: 30px 50px;
+    width: 600px;
+    max-width: 100%;
+    text-align: center;
+}
+
+.modal h2 {
+    margin: 0;
+}
+
+.modal p {
+    font-size: 20px;
+    opacity: 0.7;
 }
