@@ -1,202 +1,308 @@
 @import "./styles/example.scss";
 
 h1 {
-    font-size: 3em; 
-    text-align: center;
-    position: relative;
-    top: 75px;
+  font-size: 3em;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+  position: relative;
+  top: 75px;
 
-    animation: popAnimation 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+  animation: popAnimation 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
 }
 
 @keyframes popAnimation {
-    0%, 20%, 50%, 80%, 100% {
-        transform: scale(1);
-        color: #61dafb; 
-    }
-    40%, 60% {
-        transform: scale(1.2);
-        color: #f00; 
-    }
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: scale(1);
+    color: yellow;
+  }
+  40%,
+  60% {
+    transform: scale(1.2);
+    color: #f00;
+  }
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    // background: url(https://media3.giphy.com/media/ei69IyyyIqc2lxn2DZ/giphy.gif?cid=ecf05e47lrscmfy4u7au8y2wm4k5biuakh6g4n45qlum5sta&ep=v1_gifs_search&rid=giphy.gif&ct=g) center/cover fixed;
-    background-image: url(https://png.pngtree.com/background/20230526/original/pngtree-an-open-vault-door-in-a-dark-room-picture-image_2748631.jpg);
-    background-size: cover;
-    height: 100vh; 
-    align-items: center;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  // background: url(https://media3.giphy.com/media/ei69IyyyIqc2lxn2DZ/giphy.gif?cid=ecf05e47lrscmfy4u7au8y2wm4k5biuakh6g4n45qlum5sta&ep=v1_gifs_search&rid=giphy.gif&ct=g) center/cover fixed;
+  background-image: url(https://png.pngtree.com/background/20230526/original/pngtree-an-open-vault-door-in-a-dark-room-picture-image_2748631.jpg);
+  background-size: cover;
+  height: 100vh;
+  align-items: center;
 }
 
-#board{
-    width: 550px;
-    height: fit-content;
-    border: 10px solid black;
-    background-color: lightslategray;
-    position: relative;
-    top: 150px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
+#board {
+  width: 550px;
+  height: fit-content;
+  border: 10px solid black;
+  background-color: lightslategray;
+  position: relative;
+  top: 150px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 li {
-    width: 66.75px;
-    height: 66.75px;
-    border: 1px solid black;
-    margin: 0px;
-    font-size: 30px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 0px;
+  width: 66.75px;
+  height: 66.75px;
+  border: 1px solid black;
+  margin: 0px;
+  font-size: 30px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 0px;
 }
 
 #board :hover {
-    background-color: yellow;
+  background-color: yellow;
 }
 
 .cashTile {
-    background-color: yellow;
-    position: relative;
+  background-color: yellow;
+  position: relative;
 }
 
 .cashTile::before {
-    content: '💰';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 30px;
+  content: "💰";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  animation: shakeTile 0.5s linear infinite;
 }
 
 .bombTile {
-    background-color: red;
-    position: relative;
+  background-color: red;
+  position: relative;
 }
 
 .bombTile::before {
-    content: '💣';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 30px;
+  content: "💣";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  animation: shakeTile 0.5s linear infinite;
+}
+
+@keyframes shakeTile {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  25%,
+  75% {
+    transform: translate(-50%, -50%) rotate(-5deg); /* Adjust the angle of shake */
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(5deg); /* Adjust the angle of shake */
+  }
 }
 
 .keyTile {
-    background-color: green;
-    position: relative;
+  background-color: green;
+  position: relative;
 }
 
 .keyTile::before {
-    content: '🗝️';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 30px;
+  content: "🗝️";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  animation: shakeTile 0.5s linear infinite;
 }
 
 .diamondTile {
-    background-color: blue;
-    position: relative;
+  background-color: blue;
+  position: relative;
 }
 
 .diamondTile::before {
-    content: '💎';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 30px; 
+  content: "💎";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  animation: shakeTile 0.5s linear infinite;
 }
 
-#score, #vaultCount, #lifeCount{
-    background-color: silver;
-    border: 10px solid gold;
-    border-style: groove;
-    border-radius: 10px;
-    padding: auto;
-    height: 60px;
-    width: 175px;
-    margin-top: auto;
-    text-align: center;
-    font-size: 26px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: bolder;
-    color: black;
-    text-shadow: 2px 2px 5px white
-
+#score,
+#vaultCount,
+#lifeCount {
+  background-color: silver;
+  border: 10px solid gold;
+  border-style: groove;
+  border-radius: 10px;
+  padding: auto;
+  height: 60px;
+  width: 175px;
+  margin-top: auto;
+  text-align: center;
+  font-size: 26px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bolder;
+  color: black;
+  text-shadow: 2px 2px 5px white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
-.container{
-    width: 550px;
-    display: flex;
-    margin: 0 auto;
-    position: relative;
-    top: 120px;
+.container {
+  width: 550px;
+  display: flex;
+  margin: 0 auto;
+  position: relative;
+  top: 120px;
 }
 
 button {
-    background-color: gray;
-    border: 0;
-    border-radius: 7px;
-    box-shadow: rgba(0, 0, 0, 0.3);
-    color: black;
-    font-size: 20px;
-    padding: 10px 20px;
+  background-color: gray;
+  border: 3px solid black;
+  border-radius: 7px;
+  box-shadow: rgba(0, 0, 0, 0.3);
+  color: black;
+  font-size: 20px;
+  padding: 10px 20px;
+  border-style: ridge;
+}
+
+#open {
+  position: absolute;
+  bottom: 650px;
+  left: 0;
+}
+
+button:hover {
+  background-color: lightgray;
 }
 
 .modalContainer {
-    background-color: rgba(245, 245, 245, 0.281);
-    opacity: 0.1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    opacity: 0;
-    pointer-events: none;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100vw;
+  background-color: rgba(245, 245, 245, 0.281);
+  opacity: 0.1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
 }
 
 .show {
-    pointer-events: auto;
-    opacity: 1;
+  pointer-events: auto;
+  opacity: 1;
 }
 
 .modal {
-    background-color: rgb(211, 211, 211);
-    border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.3);
-    padding: 30px 50px;
-    width: 600px;
-    max-width: 100%;
-    text-align: center;
-    color: black;
-    text-shadow: 2px 2px 5px white;
+  background-color: rgb(211, 211, 211);
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.3);
+  padding: 30px 50px;
+  width: 600px;
+  max-width: 100%;
+  text-align: center;
+  color: black;
+  text-shadow: 2px 2px 5px white;
 }
 
 .modal h2 {
-    font-size: 30px;
-    line-height: 1.8;
-    margin: 0;
+  font-size: 30px;
+  line-height: 1.8;
+  margin: 0;
 }
 
 .modal p {
-    font-size: 20px;
-    line-height: 1.8;
-    opacity: 1;
+  font-size: 20px;
+  line-height: 1.8;
+  opacity: 1;
 }
 
-#reset{
-    margin-top: 20px;
-    margin-left: 1000px;
+#resetGame {
+  position: absolute;
+  bottom: 600px;
+  left: 0;
+}
+
+.gameOver {
+  display: none;
+  position: fixed;
+  //   z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 5px yellow;
+  border-radius: 20px;
+  border-style: double;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  //   padding: 30px 50px;
+  width: 600px;
+  max-width: 100%;
+  text-align: center;
+  color: black;
+  font-size: 24px;
+  text-shadow: 2px 2px 5px white;
+}
+
+.results {
+  background-color: aqua;
+  border: 5px solid yellow;
+  border-radius: 20px;
+  border-style: double;
+  box-shadow: rgba(0, 0, 0, 0.3);
+  padding: 30px 50px;
+  width: 600px;
+  max-width: 100%;
+  text-align: center;
+  color: black;
+  text-shadow: 2px 2px 5px red;
+  font-family: fantasy;
+  font-size: 50px;
+  color: yellow;
+  line-height: 1.5;
+}
+
+.exit {
+  color: white;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  font-size: 36px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.exit:hover,
+.exit:focus {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#linkedIn {
+  position: absolute;
+  bottom: 725px;
+  left: 10px;
+}
+
+#git {
+  position: absolute;
+  bottom: 725px;
+  left: 150px;
 }

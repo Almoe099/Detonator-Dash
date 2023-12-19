@@ -6,9 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
     <script src="./dist/main.js"></script>
-    <!-- <link rel="icon" type="image/x-icon" href="icons8-bank-16.png"> -->
-    <link rel="icon" type="image/x-icon" href="icons8-bank-safe-96.png">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Digital-Font&display=swap" rel="stylesheet"> -->
+    <link rel="icon" type="image/x-icon" href="icons8-bank-safe-96.png" />
+    <a href="https://github.com/Almoe099/Detonator-Dash"
+      ><img id="git" src="icons8-github-128.png"
+    /></a>
+    <a href="https://github.com/Almoe099/Detonator-Dash"
+      ><img id="linkedIn" src="icons8-linkedin-128.png"
+    /></a>
     <title>DETONATOR DASH</title>
   </head>
 
@@ -24,24 +28,45 @@
     <button id="resetGame"></button>
     <div class="modalContainer" id="modalContainer">
       <div class="modal">
-        <h2>Introductions</h2>
+        <h2>Denotator Dash: Explosive Grid Adventure</h2>
         <p>
-          Detonator Dash is an exciting grid-based game where players aim to
-          achieve a high score by collecting coins and keys while avoiding
-          hidden bombs. The game consists of a grid with various elements,
-          including coins, keys, bombs, and power-ups. Players must
-          strategically click on tiles to reveal coins and keys, earning points
-          for each collected coin and key. However, clicking on a bomb ends the
-          game. The challenge increases with each level as the grid expands, and
-          is populated randomly with more bombs. Reveal tiles on the grid by
-          clicking on them. Collect coins for 10 points each and keys for 50
-          points. Receive visual cues (blue or red color) indicating proximity
-          to the key when clicking on a coin. Encounter hidden power-ups that
-          enhance gameplay. Progress through levels with increasing difficulty
-          and larger grids. View the number of lives and the current score.
-          
+          Welcome to Denotator Dash, an adrenaline-pumping grid-based game that
+          takes excitement to new heights. In this thrilling journey, players
+          embark on a quest to achieve the highest score possible by
+          strategically collecting coins and unlocking vaults with keys, all
+          while navigating the treacherous landscape of hidden bombs.
+        </p>
+
+        <p>
+          The game unfolds in a grid filled with a dynamic array of elements,
+          including coins, keys, and enticing power-ups. Your task is to
+          strategically click on tiles, revealing coins and keys to earn points.
+          Be on the lookout for diamonds, as tiles near the key are diamonds
+          worth $25 each. Keys, on the other hand, are worth a whopping $50.
+          Keep an eye out for visual cues: blue indicates you are near the key,
+          while red signals you are on a bomb.
+        </p>
+
+        <p>
+          Brace yourself for an escalating challenge as each level expands the
+          grid and introduces more hidden bombs. Dive into the game's strategic
+          depth as you encounter hidden power-ups that elevate your gameplay to
+          new heights.
+        </p>
+
+        <p>
+          Progress through levels with increasing difficulty, navigating larger
+          grids and facing more unpredictable challenges. Keep a close eye on
+          your number of lives and your current score—your journey through
+          Denotator Dash is a relentless test of skill and strategy.
         </p>
         <button id="close">Close Introductions</button>
+      </div>
+    </div>
+    <div id="gameOverModal" class="gameOver">
+      <div class="results">
+        <span class="exit" id="closeModal">&times;</span>
+        <p id="context"></p>
       </div>
     </div>
   </body>

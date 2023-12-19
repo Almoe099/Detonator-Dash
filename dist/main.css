@@ -58,6 +58,7 @@ table {
 
 h1 {
   font-size: 3em;
+  font-family: "Times New Roman", Times, serif;
   text-align: center;
   position: relative;
   top: 75px;
@@ -67,7 +68,7 @@ h1 {
 @keyframes popAnimation {
   0%, 20%, 50%, 80%, 100% {
     transform: scale(1);
-    color: #61dafb;
+    color: yellow;
   }
   40%, 60% {
     transform: scale(1.2);
@@ -124,6 +125,7 @@ li {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 30px;
+  animation: shakeTile 0.5s linear infinite;
 }
 
 .bombTile {
@@ -138,8 +140,20 @@ li {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 30px;
+  animation: shakeTile 0.5s linear infinite;
 }
 
+@keyframes shakeTile {
+  0%, 100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  25%, 75% {
+    transform: translate(-50%, -50%) rotate(-5deg); /* Adjust the angle of shake */
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(5deg); /* Adjust the angle of shake */
+  }
+}
 .keyTile {
   background-color: green;
   position: relative;
@@ -152,6 +166,7 @@ li {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 30px;
+  animation: shakeTile 0.5s linear infinite;
 }
 
 .diamondTile {
@@ -166,9 +181,12 @@ li {
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 30px;
+  animation: shakeTile 0.5s linear infinite;
 }
 
-#score, #vaultCount, #lifeCount {
+#score,
+#vaultCount,
+#lifeCount {
   background-color: silver;
   border: 10px solid gold;
   border-style: groove;
@@ -183,6 +201,9 @@ li {
   font-weight: bolder;
   color: black;
   text-shadow: 2px 2px 5px white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
@@ -195,12 +216,23 @@ li {
 
 button {
   background-color: gray;
-  border: 0;
+  border: 3px solid black;
   border-radius: 7px;
   box-shadow: rgba(0, 0, 0, 0.3);
   color: black;
   font-size: 20px;
   padding: 10px 20px;
+  border-style: ridge;
+}
+
+#open {
+  position: absolute;
+  bottom: 650px;
+  left: 0;
+}
+
+button:hover {
+  background-color: lightgray;
 }
 
 .modalContainer {
@@ -247,7 +279,73 @@ button {
   opacity: 1;
 }
 
-#reset {
-  margin-top: 20px;
-  margin-left: 1000px;
+#resetGame {
+  position: absolute;
+  bottom: 600px;
+  left: 0;
+}
+
+.gameOver {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 5px yellow;
+  border-radius: 20px;
+  border-style: double;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 600px;
+  max-width: 100%;
+  text-align: center;
+  color: black;
+  font-size: 24px;
+  text-shadow: 2px 2px 5px white;
+}
+
+.results {
+  background-color: aqua;
+  border: 5px solid yellow;
+  border-radius: 20px;
+  border-style: double;
+  box-shadow: rgba(0, 0, 0, 0.3);
+  padding: 30px 50px;
+  width: 600px;
+  max-width: 100%;
+  text-align: center;
+  color: black;
+  text-shadow: 2px 2px 5px red;
+  font-family: fantasy;
+  font-size: 50px;
+  color: yellow;
+  line-height: 1.5;
+}
+
+.exit {
+  color: white;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  font-size: 36px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.exit:hover,
+.exit:focus {
+  color: red;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#linkedIn {
+  position: absolute;
+  bottom: 725px;
+  left: 10px;
+}
+
+#git {
+  position: absolute;
+  bottom: 725px;
+  left: 150px;
 }

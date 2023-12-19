@@ -4,12 +4,12 @@ export class Board {
     this.boardArray = this.createBoardArray();
     this.vaultCount = 1;
     this.score = 0;
-    this.KeyScore = 50
-    this.diamondScore = 25
-    this.cashScore = 10
+    this.KeyScore = 50;
+    this.diamondScore = 25;
+    this.cashScore = 10;
     this.bombRate = 0.2;
-    this.life = 3
-    this.handleClick = this.handleClick.bind(this)
+    this.life = 3;
+    this.handleClick = this.handleClick.bind(this);
   }
 
   createBoardArray() {
@@ -51,7 +51,7 @@ export class Board {
     }
     this.updateScoreDisplay();
     this.updateVaultCount();
-    this.updateLifeCount()
+    this.updateLifeCount();
     this.boardContainer.addEventListener("click", this.handleClick);
   }
 
@@ -61,19 +61,12 @@ export class Board {
       parseInt(e.target.dataset.posY),
     ];
 
-    if (e.target.classList.contains("diamondTile")) {
-      return;
-    }
-
-    if (e.target.classList.contains("cashTile")) {
-      return;
-    }
-
-    if (e.target.classList.contains("keyTile")) {
-      return;
-    }
-
-    if (e.target.classList.contains("bombTile")) {
+    if (
+      e.target.classList.contains("diamondTile") ||
+      e.target.classList.contains("cashTile") ||
+      e.target.classList.contains("keyTile") ||
+      e.target.classList.contains("bombTile")
+    ) {
       return;
     }
 
@@ -92,18 +85,38 @@ export class Board {
       this.vaultCount += 1;
     } else {
       e.target.classList.add("bombTile");
-      this.life--
-      if (this.life == 0){
-        this.updateLifeCount()
+      this.life--;
+      if (this.life === 0) {
+        this.updateLifeCount();
         this.revealBoard();
-        alert(`GAME OVER , Your Score: $${this.score}`);
-        this.boardContainer.removeEventListener('click', this.handleClick);
-        // this.resetGame()
+
+        const modalContent = document.getElementById("context");
+        modalContent.innerHTML = "";
+
+        const h3Element1 = document.createElement("h3");
+        const h3Element2 = document.createElement("h3");
+        const h3Element3 = document.createElement("h3");
+        h3Element1.textContent = "GAME OVER!!!";
+        h3Element2.textContent = `Vault Number: ${this.vaultCount}`;
+        h3Element3.textContent = `Your Score: $${this.score}`;
+        modalContent.appendChild(h3Element1);
+        modalContent.appendChild(h3Element2);
+        modalContent.appendChild(h3Element3);
+
+        const modal = document.getElementById("gameOverModal");
+        modal.style.display = "flex";
+
+        const closeModal = document.getElementById("closeModal");
+        closeModal.addEventListener("click", () => {
+          modal.style.display = "none";
+        });
+
+        this.boardContainer.removeEventListener("click", this.handleClick);
         return;
       }
     }
     this.updateScoreDisplay();
-    this.updateLifeCount()
+    this.updateLifeCount();
   }
 
   revealBoard() {
@@ -160,27 +173,26 @@ export class Board {
 
   updateLifeCount() {
     const life = document.getElementById("lifeCount");
-    life.innerHTML = "Lifes " + this.life;
+    life.innerHTML = "Lives " + this.life;
   }
 
   KeyFound() {
     this.bombRate *= 1.1;
-    this.KeyScore *= 2
-    this.diamondScore *= 2
-    this.cashScore *= 2
+    this.KeyScore *= 2;
+    this.diamondScore *= 2;
+    this.cashScore *= 2;
     setTimeout(() => {
       this.boardArray = this.createBoardArray();
       this.boardContainer.innerHTML = "";
       this.createBoard();
       this.updateScoreDisplay();
-    }, 500);
+    }, 300);
   }
 
   createResetButton() {
-    const resetButton = document.getElementById("resetGame")
-    resetButton.classList.add("reset")
+    const resetButton = document.getElementById("resetGame");
+    resetButton.classList.add("reset");
     resetButton.textContent = "Reset Game";
-    console.log(resetButton)
     resetButton.addEventListener("click", () => this.resetGame());
   }
 
@@ -199,5 +211,4 @@ export class Board {
     this.updateVaultCount();
     this.updateLifeCount();
   }
-  
 }

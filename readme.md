@@ -2,18 +2,32 @@
 
 ## Background
 
-Detonator Dash is an exciting grid-based game where players aim to achieve a high score by collecting coins and keys while avoiding hidden bombs. The game consists of a grid with various elements, including coins, keys, bombs, and power-ups. Players must strategically click on tiles to reveal coins and keys, earning points for each collected coin and key. However, clicking on a bomb ends the game. The challenge increases with each level as the grid expands, and is populated randomly with more bombs.
+Welcome to Detonator Dash, an exhilarating grid-based game where players strive to achieve the highest score by navigating a perilous landscape filled with coins, keys, and hidden bombs. The game introduces various elements, such as power-ups, dynamically adjusting grids, and strategic challenges that keep players on the edge of their seats.
 
 ## Functionality & MVPs
 
-In Detonator Dash, users will be able to:
+In Detonator Dash, users can expect the following features:
 
-1. Reveal tiles on the grid by clicking on them.
-2. Collect coins for 10 points each and keys for 50 points.
-3. Receive visual cues (blue or red color) indicating proximity to the key when clicking on a coin.
-4. Encounter hidden power-ups that enhance gameplay.
-5. Progress through levels with increasing difficulty and larger grids.
-6. View the number of lives and the current score.
+1. **Tile Interaction:**
+
+   - Reveal tiles on the grid with strategic clicks.
+
+2. **Scoring Mechanism:**
+
+   - Collect coins for 10 points each, diamonds near keys for $25, and keys for a substantial $50.
+
+3. **Visual Cues:**
+
+   - Receive visual cues:
+     - Blue indicates proximity to the key when clicking on a coin.
+     - Red signifies danger—you're on a bomb.
+
+4. **Progressive Challenges:**
+
+   - Progress through levels with increasing difficulty and dynamically adjusting grid sizes.
+
+5. **Scoreboard:**
+   - View the number of lives and the current score to track your progress.
 
 Additionally, the project will include:
 
@@ -21,25 +35,16 @@ Additionally, the project will include:
   - Detailed instructions on gameplay and controls.
   - A comprehensive README file providing information about the project.
 
-- **Power-ups:**
-  - Implementation of hidden power-ups that provide special abilities to the player.
-
-- **Dynamic Grids:**
-  - The grid dynamically adjusts its size and the number of bombs as the player progresses through levels.
-
 ## Wireframes
 
 ![Alt text](image.png)
 
 ## Technologies, Libraries, APIs
 
-The project will use the following technologies, libraries, and APIs:
+Detonator Dash leverages the following technologies, libraries, and methods:
 
 - **JavaScript:**
   - For game logic and interactivity.
-
-- **HTML5 Canvas API:**
-  - For rendering the game grid and visual elements.
 
 - **CSS:**
   - For styling the game interface.
@@ -47,7 +52,6 @@ The project will use the following technologies, libraries, and APIs:
 - **GitHub Pages:**
   - To deploy the game online.
 
-- <a target="_blank" href="https://icons8.com/icon/EJum2jug7UZq/bank">Bank</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 - <a target="_blank" href="https://icons8.com/icon/TT4FFC7dCuDO/bank-safe">Bank Safe</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
 
 ## Implementation Timeline
@@ -55,6 +59,7 @@ The project will use the following technologies, libraries, and APIs:
 ### Friday Afternoon & Weekend
 
 - **Set Up Repository:**
+
   - Create local and remote repositories.
   - Structure the project folders.
 
@@ -65,7 +70,6 @@ The project will use the following technologies, libraries, and APIs:
 ### Monday
 
 - **Game Grid and Tiles:**
-  - Implement the grid using the HTML5 Canvas API.
   - Define different tile types (coins, keys, bombs).
 
 - **Tile Click Functionality:**
@@ -74,6 +78,7 @@ The project will use the following technologies, libraries, and APIs:
 ### Tuesday
 
 - **Scoring System:**
+
   - Implement scoring logic for coins and keys.
 
 - **Proximity Indicator:**
@@ -81,15 +86,17 @@ The project will use the following technologies, libraries, and APIs:
 
 ### Wednesday
 
-- **Power-ups:**
-  - Integrate hidden power-ups with unique effects.
+- **Animations:**
 
-- **Dynamic Grid:**
+  - Integrate tiles with unique effects.
+
+- **Adjusting Grid Size:**
   - Implement dynamic grid resizing and bomb addition for increasing difficulty.
 
 ### Thursday Morning
 
 - **Lives Display:**
+
   - Display the number of lives remaining.
 
 - **README:**
@@ -98,6 +105,7 @@ The project will use the following technologies, libraries, and APIs:
 ### Presentation & Deployment
 
 - **Prepare Presentation:**
+
   - Practice the presentation.
   - Prepare visuals for the presentation.
 
