@@ -8,6 +8,7 @@ export class Board {
     this.diamondScore = 25
     this.cashScore = 10
     this.bombRate = 0.2;
+    this.life = 3
     this.handleClick = this.handleClick.bind(this)
   }
 
@@ -50,6 +51,7 @@ export class Board {
     }
     this.updateScoreDisplay();
     this.updateVaultCount();
+    this.updateLifeCount()
     this.boardContainer.addEventListener("click", this.handleClick);
   }
 
@@ -71,6 +73,10 @@ export class Board {
       return;
     }
 
+    if (e.target.classList.contains("bombTile")) {
+      return;
+    }
+
     if (this.boardArray[dataPosValue[0]][dataPosValue[1]] === "💰") {
       if (this.nearKey(dataPosValue[0], dataPosValue[1])) {
         e.target.classList.add("diamondTile");
@@ -86,12 +92,18 @@ export class Board {
       this.vaultCount += 1;
     } else {
       e.target.classList.add("bombTile");
-      this.revealBoard();
-      alert(`GAME OVER , Your Score: $${this.score}`);
-      this.boardContainer.removeEventListener('click', this.handleClick);
-      return;
+      this.life--
+      if (this.life == 0){
+        this.updateLifeCount()
+        this.revealBoard();
+        alert(`GAME OVER , Your Score: $${this.score}`);
+        this.boardContainer.removeEventListener('click', this.handleClick);
+        // this.resetGame()
+        return;
+      }
     }
     this.updateScoreDisplay();
+    this.updateLifeCount()
   }
 
   revealBoard() {
@@ -146,6 +158,11 @@ export class Board {
     vault.innerHTML = "Vault Number " + this.vaultCount;
   }
 
+  updateLifeCount() {
+    const life = document.getElementById("lifeCount");
+    life.innerHTML = "Lifes " + this.life;
+  }
+
   KeyFound() {
     this.bombRate *= 1.1;
     this.KeyScore *= 2
@@ -156,7 +173,31 @@ export class Board {
       this.boardContainer.innerHTML = "";
       this.createBoard();
       this.updateScoreDisplay();
-    }, 1000);
+    }, 500);
+  }
+
+  createResetButton() {
+    const resetButton = document.getElementById("resetGame")
+    resetButton.classList.add("reset")
+    resetButton.textContent = "Reset Game";
+    console.log(resetButton)
+    resetButton.addEventListener("click", () => this.resetGame());
+  }
+
+  resetGame() {
+    this.vaultCount = 1;
+    this.score = 0;
+    this.KeyScore = 50;
+    this.diamondScore = 25;
+    this.cashScore = 10;
+    this.bombRate = 0.2;
+    this.life = 3;
+    this.boardArray = this.createBoardArray();
+    this.boardContainer.innerHTML = "";
+    this.createBoard();
+    this.updateScoreDisplay();
+    this.updateVaultCount();
+    this.updateLifeCount();
   }
   
 }

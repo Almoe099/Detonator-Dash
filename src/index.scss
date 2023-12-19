@@ -19,25 +19,16 @@ h1 {
         color: #f00; 
     }
 }
+
 body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background: url(https://media3.giphy.com/media/ei69IyyyIqc2lxn2DZ/giphy.gif?cid=ecf05e47lrscmfy4u7au8y2wm4k5biuakh6g4n45qlum5sta&ep=v1_gifs_search&rid=giphy.gif&ct=g) center/cover fixed;
-    color: #61dafb;
+    // background: url(https://media3.giphy.com/media/ei69IyyyIqc2lxn2DZ/giphy.gif?cid=ecf05e47lrscmfy4u7au8y2wm4k5biuakh6g4n45qlum5sta&ep=v1_gifs_search&rid=giphy.gif&ct=g) center/cover fixed;
+    background-image: url(https://png.pngtree.com/background/20230526/original/pngtree-an-open-vault-door-in-a-dark-room-picture-image_2748631.jpg);
+    background-size: cover;
     height: 100vh; 
     align-items: center;
-    animation: coolAnimation 2s linear infinite;
-}
-
-
-@keyframes coolAnimation {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(1);
-    }
 }
 
 #board{
@@ -124,41 +115,24 @@ li {
     font-size: 30px; 
 }
 
-#score{
-    border: 3px solid yellow;
+#score, #vaultCount, #lifeCount{
+    background-color: silver;
+    border: 10px solid gold;
+    border-style: groove;
     border-radius: 10px;
-    height: 70px;
+    padding: auto;
+    height: 60px;
     width: 175px;
-    background-color: white;
-    margin-top: 20px;
+    margin-top: auto;
     text-align: center;
+    font-size: 26px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bolder;
     color: black;
-    font-size: 30px;
+    text-shadow: 2px 2px 5px white
+
 }
 
-#vaultCount{
-    border: 3px solid blue;
-    border-radius: 10px;
-    height: 70px;
-    width: 175px;
-    background-color: white;
-    margin-top: 20px;
-    text-align: center;
-    color: crimson;
-    font-size: 30px;
-}
-
-#restart{
-    border: 3px solid crimson;
-    border-radius: 10px;
-    height: 70px;
-    width: 175px;
-    background-color: white;
-    margin-top: 20px;
-    text-align: center;
-    color: black;
-    font-size: 30px;
-}
 
 .container{
     width: 550px;
@@ -179,7 +153,8 @@ button {
 }
 
 .modalContainer {
-    background-color: whitesmoke;
+    background-color: rgba(245, 245, 245, 0.281);
+    opacity: 0.1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -198,7 +173,7 @@ button {
 }
 
 .modal {
-    background-color: lightgrey;
+    background-color: rgb(211, 211, 211);
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.3);
     padding: 30px 50px;
@@ -206,13 +181,22 @@ button {
     max-width: 100%;
     text-align: center;
     color: black;
+    text-shadow: 2px 2px 5px white;
 }
 
 .modal h2 {
+    font-size: 30px;
+    line-height: 1.8;
     margin: 0;
 }
 
 .modal p {
     font-size: 20px;
-    opacity: 0.7;
+    line-height: 1.8;
+    opacity: 1;
+}
+
+#reset{
+    margin-top: 20px;
+    margin-left: 1000px;
 }

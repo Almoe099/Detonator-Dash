@@ -5,6 +5,7 @@ export default class Game {
     constructor(boardContainer){
         this.board = new Board(boardContainer)
         this.board.createBoard();
+        this.board.createResetButton()
 
     }
     

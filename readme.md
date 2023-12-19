@@ -47,6 +47,9 @@ The project will use the following technologies, libraries, and APIs:
 - **GitHub Pages:**
   - To deploy the game online.
 
+- <a target="_blank" href="https://icons8.com/icon/EJum2jug7UZq/bank">Bank</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+- <a target="_blank" href="https://icons8.com/icon/TT4FFC7dCuDO/bank-safe">Bank Safe</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+
 ## Implementation Timeline
 
 ### Friday Afternoon & Weekend
