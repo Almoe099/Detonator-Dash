@@ -4,7 +4,7 @@
 
 Welcome to Detonator Dash, an exhilarating grid-based game where players strive to achieve the highest score by navigating a perilous landscape filled with coins, keys, and hidden bombs. The game introduces various elements, such as cool animations, a full interactive 8 by 8 grid, and strategic challenges that keep players on the edge of their seats.
 
-https://almoe099.github.io/Detonator-Dash/ 
+[Detonator Dash](https://almoe099.github.io/Detonator-Dash/)
 
 ![Home Page](image-1.png)
 
@@ -60,9 +60,11 @@ To play click the screen with your mouse to reveal the hidden tiles and aim for 
 Detonator Dash leverages the following technologies, libraries, and methods:
 
 - **JavaScript:**
+
   - For game logic and interactivity.
 
 - **CSS:**
+
   - For styling the game interface.
 
 - **GitHub Pages:**
@@ -76,7 +78,7 @@ Detonator Dash leverages the following technologies, libraries, and methods:
 - Need to add some styling to make the board a symmetric grid
 - Then, I assigned a unique id to each "li" tag so that I could reference that specific tag
 
-``` javascript 
+```javascript
   createBoard() {
     for (let r = 0; r < 8; r++) {
       for (let c = 0; c < 8; c++) {
@@ -94,7 +96,7 @@ Detonator Dash leverages the following technologies, libraries, and methods:
   }
 ```
 
-``` scss
+```scss
 #board {
   width: 550px;
   height: fit-content;
@@ -126,7 +128,7 @@ li {
 - Next, randomly populated the board with 1 key and the default 20% bombs, and the rest cash
 - This guaranteed the board is constantly shuffled each time.
 
-``` javascript 
+```javascript
   createBoardArray() {
     if (this.bombRate === undefined) {
       this.bombRate = 0.2;
@@ -160,7 +162,7 @@ li {
 - Use a nested for loop to literate over whole the board
 - Next, found each li tag by it's id and added its assigned class
 
-``` javascript 
+```javascript
   revealBoard() {
     for (let i = 0; i < 8; i++) {
       for (let j = 0; j < 8; j++) {
@@ -193,7 +195,7 @@ li {
 - prevented the action of clicking a tile more than twice
 - create a modal pop up whenever lives equal 0
 
-``` javascript 
+```javascript
   handleClick(e) {
     const dataPosValue = [
       parseInt(e.target.dataset.posX),
@@ -261,10 +263,10 @@ li {
 
 **Update Score Board:**
 
-- Created a score board that updates the current information 
+- Created a score board that updates the current information
 - It grabs the div tag by the id and reassigns the existing information
 
-``` javascript 
+```javascript
   updateScoreDisplay() {
     const score = document.getElementById("score");
     score.innerHTML = "Current Score $" + this.score;
@@ -288,7 +290,7 @@ li {
 - Added a eventlister so the reset game is called
 - The reset game method resets everything to default
 
-``` javascript 
+```javascript
   createResetButton() {
     const resetButton = document.getElementById("resetGame");
     resetButton.classList.add("reset");
@@ -329,6 +331,7 @@ li {
 ### Friday Afternoon & Weekend
 
 - **Game Grid and Tiles:**
+
   - Define different tile types (cash, diamonds, keys, bombs).
 
 - **Tile Click Functionality:**
