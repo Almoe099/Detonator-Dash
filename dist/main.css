@@ -148,10 +148,10 @@ li {
     transform: translate(-50%, -50%) rotate(0deg);
   }
   25%, 75% {
-    transform: translate(-50%, -50%) rotate(-5deg); /* Adjust the angle of shake */
+    transform: translate(-50%, -50%) rotate(-5deg);
   }
   50% {
-    transform: translate(-50%, -50%) rotate(5deg); /* Adjust the angle of shake */
+    transform: translate(-50%, -50%) rotate(5deg);
   }
 }
 .keyTile {
